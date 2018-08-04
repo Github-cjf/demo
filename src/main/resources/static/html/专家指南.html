@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>专家指南</title>
+    <link type="text/css" rel="stylesheet" href="../css/tooltip.css" />
+    <link type="text/css" rel="stylesheet" href="../css/global.css" />
+    <link type="text/css" rel="stylesheet" href="../css/layout.css" />
+    <link type="text/css" rel="stylesheet" href="../css/cszk.css" />
+	<script src="../js/jquery.min.js" ></script>
+</head>
+
+<body class="bg-gray">
+<script>
+	$(document).ready(function(){
+        list();
+	});
+
+	function list() {
+        $.ajax({
+            type: 'GET',
+            url: 'localhost:8804/expertGuide/pageQuery',
+            //data: data,
+            success: function (result) {
+                
+            },
+            dataType: 'json'
+        });
+    }
+	
+</script>
+<!--header-->
+<div class="header">
+    <ul class="nav">
+        <li class="active"><a>申请审核 6</a></li>
+        <li><a>用户管理</a></li>
+        <li><a>公告管理</a></li>
+        <li><a>帮助文档</a></li>
+    </ul>
+    <div class="right">
+        <div class="login-info">
+            <div><a>admin</a><i class="header-angle"></i></div>
+            <div class="info-msg"  style="display: none;">
+                <div class="clearfix user-style">
+                    <img src="../image/t-face.jpg" width="30" height="30" class="t-face">
+                    <div class="user-name"><span class="am-ft-normal">admin</span><br>医院用户</div>
+                </div>
+                <ul>
+                    <li><a>我的账户</a></li>
+                    <li><a>退出登录</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<!--end header-->
+<!--右侧部分-->
+<div class="right-area">
+    <!--右侧主要内容-->
+    <div class="right-main">
+        <div class="tlt-bar bg-gray clearfixx">
+            <span class="bread-crumb"><a>项目管理</a>&nbsp;&gt;&nbsp;<a>详情</a></span>
+            <span class="cm-right"><i class="i i-msg"></i>3月24日，20:00开始系统更新，请注意！</span>
+        </div>
+        <div class="top-tab-area am-nmlr-25">
+            <h4>专家指南<a class="am-btn am-btn-primary cm-right" onClick="aa()">+&nbsp;发布立项</a></h4>
+        </div>
+        <table class="am-tb am-mt-15">
+            <tbody>
+            <tr>
+                <td>
+                    <div class="td-i-lager i-tb-pdf">
+                        <p class="am-ft-medium">国际妇产科超声学会早孕期胎儿超声指南</p>
+                        <div class="am-txt-light am-ft-sm">
+                            <span>发布时间：2018-03-12 10:00:00</span>
+                            <span class="am-ml-20">阅读量：197</span>
+                            <span class="am-ml-20">下载量：547</span>
+                        </div>
+                    </div>
+                </td>
+                <td width="80" class="operate"><a>查看</a></td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="td-i-lager i-tb-pdf">
+                        <p class="am-ft-medium">国际妇产科超声学会早孕期胎儿超声指南</p>
+                        <div class="am-txt-light am-ft-sm">
+                            <span>发布时间：2018-03-12 10:00:00</span>
+                            <span class="am-ml-20">阅读量：197 </span>
+                            <span class="am-ml-20">下载量：547</span>
+                        </div>
+                    </div>
+                </td>
+                <td width="80" class="operate"><a>查看</a></td>
+            </tr>
+            </tbody>
+        </table>
+        <!--分页-->
+        <div class="page">
+            <a class="start"></a>
+            <a class="pre">&lt;</a>
+            <a class="active">1</a>
+            <a>2</a>
+            <a>3</a>
+            <a>4</a>
+            <a>5</a>
+            <span class="ellipsis">…</span>
+            <a>45</a>
+            <a>46</a>
+            <a>47</a>
+            <a class="next">&gt;</a>
+            <a class="end"></a>
+            <div class="cont">
+                <div class="am-ctr-sel am-mr-10" style="width: 100px;">
+                    <a class="caption" href="javascript:void(0)" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true">15条/页</a>
+                    <div class="am-dropdown">
+                        <ul>
+                            <li class="disabled">100条/页</li>
+                            <li class="active">200条/页</li>
+                            <li>项目3项目3项目3项目3项目3项目3项目3项目3项目3项目3项目3项目3项目3</li>
+                            <li>300条</li>
+                            <li>项目5</li>
+                            <li>项目6</li>
+                            <li>项目7</li>
+                            <li>项目8</li>
+                            <li>项目9</li>
+                            <li>项目10</li>
+                        </ul>
+                    </div>
+                </div>
+                10条／页  共15页<em class="am-ml-10 am-txt-muted">跳至</em>
+                <label class="am-input-unit w70">
+                    <input type="text" class="input-text">
+                    <i>页</i>
+                </label>
+                <span class="am-txt-muted am-ml-10">共<em class="am-txt-normal">539</em>条</span>
+            </div>
+        </div>
+        <!--end 分页-->
+    </div>
+    <!--end 右侧主要内容-->
+</div>
+<!--end 右侧部分-->
+</body>
+</html>

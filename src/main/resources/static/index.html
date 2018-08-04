@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8"/>
+    <title>第一个HTML页面</title>
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+</head>
+<script>
+
+
+    function test() {
+        var ws = new WebSocket("ws:http://localhost:8081/index");
+        ws.onopen = function()
+        {
+            // Web Socket 已连接上，使用 send() 方法发送数据
+            ws.send("发送数据");
+            alert("数据发送中...");
+        };
+
+        ws.onmessage = function (evt)
+        {
+            var received_msg = evt.data;
+            alert("数据已接收...");
+        };
+
+        ws.onclose = function()
+        {
+            // 关闭 websocket
+            alert("连接已关闭...");
+        };
+    }
+</script>
+<body>
+<h1>Hello Spring Boot!!!</h1>
+<!--<p th:text="${hello}"></p>-->
+<input id="test" type="button" onclick="test();" value="test">
+<!--<input value="test" type="button" id="aaa" onclick="test();">-->
+</body>
+</html>
