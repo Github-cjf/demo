@@ -15,7 +15,6 @@ public class Customer {
     private Long id;
     private String firstName;
     private String lastName;
-    private String sex;
     public Customer() {}
     public Customer(String firstName, String lastName) {
         this.firstName = firstName;
