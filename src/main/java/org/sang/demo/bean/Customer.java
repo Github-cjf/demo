@@ -23,6 +23,7 @@ public class Customer {
     @Override
     public String toString() {
         System.out.println("master");
+        System.out.println("before");
         return String.format(
                 "Customer[id=%d, firstName='%s', lastName='%s']",
                 id, firstName, lastName);
@@ -41,5 +42,6 @@ public class Customer {
         System.out.println("调用了，私有的，并且有返回值的，int参数的show4(): age = " + age);
         return "abcd";
     }
+
 
 }
