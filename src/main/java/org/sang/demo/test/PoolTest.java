@@ -28,7 +28,7 @@ public class PoolTest {
 //                Person p = Person.getInstance();
 //                System.out.println("hashcode:"+p.hashCode());
 //            };
-//            Thread t = new Thread(r);
+//            ThreadTest t = new ThreadTest(r);
 //            t.start();
         }
         Thread.sleep(5000);

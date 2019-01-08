@@ -1,6 +1,8 @@
 package org.sang.demo;
 
 import org.springframework.boot.jackson.JsonObjectSerializer;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 
 import java.util.Map;
 
@@ -13,5 +15,10 @@ public class jsonchange {
 
         System.out.println(map);
 
+    }
+
+
+    public void say(){
+        System.out.println("say:123");
     }
 }
