@@ -15,7 +15,6 @@ public class Customer {
     private Long id;
     private String firstName;
     private String lastName;
-
     public Customer() {}
     public Customer(String firstName, String lastName) {
         this.firstName = firstName;
@@ -23,7 +22,7 @@ public class Customer {
     }
     @Override
     public String toString() {
-        System.out.println("master");
+        System.out.println("testhost");
         return String.format(
                 "Customer[id=%d, firstName='%s', lastName='%s']",
                 id, firstName, lastName);
