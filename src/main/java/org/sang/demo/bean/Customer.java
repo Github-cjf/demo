@@ -15,6 +15,7 @@ public class Customer {
     private Long id;
     private String firstName;
     private String lastName;
+
     public Customer() {}
     public Customer(String firstName, String lastName) {
         this.firstName = firstName;
