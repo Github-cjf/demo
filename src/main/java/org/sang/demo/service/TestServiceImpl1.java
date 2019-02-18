@@ -10,8 +10,6 @@ import org.springframework.stereotype.Service;
  */
 @Service("test1")
 public class TestServiceImpl1 implements TestService{
-    @Autowired
-    UserJPA userJPA;
 
     @Override
     public String getData() {
