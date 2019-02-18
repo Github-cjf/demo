@@ -23,6 +23,8 @@ public class Customer {
     @Override
     public String toString() {
         System.out.println("testhost");
+        System.out.println("test");
+        System.out.println("merge");
         return String.format(
                 "Customer[id=%d, firstName='%s', lastName='%s']",
                 id, firstName, lastName);
