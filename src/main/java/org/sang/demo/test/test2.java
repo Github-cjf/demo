@@ -13,12 +13,26 @@ import java.util.stream.IntStream;
  * Created by CJF on 2018-5-31.
  */
 public class test2 {
-    public static void main(String[] args) {
-        List list = new ArrayList(10000);
-        IntStream.range(0, 1000).parallel().forEach(list::add);
-//        Vector v = new Vector();
-//        list.parallelStream().forEach(System.out::println);
-        System.out.println(list.size());
+    public static void main(String[] args) throws InterruptedException {
+        int a = 123;
+        int b = 432;
+        a |= b;
+        System.out.println(a);
+//        for (int i = 0; i < 10; i++) {
+//            new Thread(() -> {
+//                System.out.println(Thread.currentThread().getName()+"==="+Message.getInstance().hashCode());
+//            }).start();
+//        }
+//        String s1 = "abc";
+//        String s2 = "a";
+//        String s3 = "bc";
+//        String s4 = s2 + s3;
+//        System.out.println(s1 == s4);
+//        List list = new ArrayList(10000);
+//        IntStream.range(0, 1000).parallel().forEach(list::add);
+////        Vector v = new Vector();
+////        list.parallelStream().forEach(System.out::println);
+//        System.out.println(list.size());
 //        int b[] = IntStream.range(0, 1_000_000).parallel().filter(p -> p % 2 == 0).toArray();
 //        System.out.println(b.length);
 //        final Object collect = list.parallelStream().collect(Collectors.toList());

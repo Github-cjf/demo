@@ -6,6 +6,8 @@ import org.sang.demo.util.SpringUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.data.mongodb.core.MongoTemplate;
+import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -29,6 +31,9 @@ public class DemoApplicationTests {
     @Value("${test.str}")
     String value;
 
+    @Autowired
+    MongoTemplate mongoTemplate;
+
     @RequestMapping(value = "/person1", method = RequestMethod.POST)
     public String person(@RequestBody Person person) {
         System.out.println("result===="+testService.getData());
@@ -45,6 +50,9 @@ public class DemoApplicationTests {
     @RequestMapping(value = "/testUrl", method = RequestMethod.GET)
     @ResponseBody
     public String testUrl() {
+        List<Object> list = mongoTemplate.find(new Query(), Object.class, "com.ewell.bean.UserBean");
+        System.out.println(list.size());
+
         SpringUtil sp = SpringUtil.getBean(SpringUtil.class);
         System.out.println("sp:"+sp.num);
 
@@ -69,6 +77,7 @@ public class DemoApplicationTests {
         for (int i = 0; i < 5; i++) {
             map.put(i+"", i*10+"");
         }
+        System.out.println(map);
         return testService.getData();
     }
 

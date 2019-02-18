@@ -1,5 +1,6 @@
 package org.sang.demo;
 
+import org.bson.types.ObjectId;
 import org.sang.demo.test.*;
 import org.sang.demo.util.SpringUtil;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,8 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.HashMap;
-import java.util.List;
+import java.util.*;
 
 @SpringBootApplication
 @RestController
@@ -52,20 +52,42 @@ public class Application {
     public static void main(String[] args) {
         SpringApplication app = new SpringApplication(Application.class);
         SpringApplication.run(Application.class, args);
+
     }
 
     @RequestMapping(value = "/index", method = RequestMethod.GET)
-    String index2(Person person) {
+    void index2() {
 //        map.put("hello", "121");
 //        map.put("bye", "saunala");
 //        System.out.println(person.toString());
 //        /*if(true){
 //            throw new MyException(ErrorCode.nullCode, ErrorCode.nullCode.getMsg());
 //        }*/
-//        Criteria criteria =new Criteria();
-//        criteria.and("diseaseType").is("STK");
-//        Query q = new Query(criteria);
-//        List l = mongoTemplate.find(q, Object.class, "drgs_template");
-        return person.toString();
+        Long startTime = System.currentTimeMillis();
+        Criteria criteria =new Criteria();
+        criteria.and("deleted").is("1");
+//        criteria.and("_id").is(new ObjectId("5bd2829d879ab14819dbd4f7"));
+        Query q = new Query(criteria);
+        List<Object> list = mongoTemplate.find(q, Object.class, "drgs_template_report");
+        list.forEach((Object obj) -> {
+            if(obj instanceof Map){
+                ObjectId id = (ObjectId) ((Map) obj).get("_id");
+                Map<String, Object> reportContent = (Map)((Map) obj).get("reportContent");
+                String title = reportContent.get("title").toString();
+                List<Map<String, Object>> sonList = (List<Map<String, Object>>) reportContent.get("sonList");
+                Set<String> set = new HashSet<>();
+                sonList.forEach(row -> {
+                    String colTitle = (String) row.get("title");
+                    colTitle = colTitle.trim();
+                    if(set.contains(colTitle)) {
+                        System.out.println(id.toString()+"===="+title);
+                        System.out.println("其中重复列名："+colTitle);
+                        return;
+                    }
+                    set.add(colTitle);
+                });
+            }
+        });
+        System.out.println("time:"+(System.currentTimeMillis()-startTime));
     }
 }
