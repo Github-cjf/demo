@@ -6,19 +6,23 @@ import java.util.Calendar;
  * Created by CJF on 2018-7-19.
  */
 public class TestFinal {
+
+    private static int bb;
+    private static int aa;
+
     static {
         System.out.println("static块");
+        bb = aa;
     }
+
     {
         System.out.println("构造代码块");
     }
-//    private final Person owner;
-    public static final int aa = 123;
     TestFinal() {
 //        owner = new Person();
         System.out.println("构造函数");
     }
-    public void modifyOwner(org.sang.demo.test.Person p) {
+    public void modifyOwner(Person p) {
         //下面一行代码是修改final变量，将提示错误，无法修改owner.
         //owner = p;
 
@@ -30,17 +34,11 @@ public class TestFinal {
 
     public static void main(String[] args) {
         System.out.println("main方法");
-        new TestFinal().modifyOwner(new org.sang.demo.test.Person());
+        new TestFinal().modifyOwner(new Person());
+        System.out.println(TestFinal.aa);
     }
 
 }
 
-class test{
-    public static void main(String[] args) {
-        System.out.println("aa="+ TestFinal.aa);
-        new TestFinal().modifyOwner(new org.sang.demo.test.Person());
-        Calendar c = Calendar.getInstance();
-    }
-}
 
 

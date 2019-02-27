@@ -1,5 +1,9 @@
 package org.sang.demo.bean;
 
+import lombok.Data;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -9,7 +13,9 @@ import javax.persistence.Id;
  * Created by CJF on 2018-9-26.
  */
 @Entity
+@Data
 public class Customer {
+    private final Logger logger = LoggerFactory.getLogger(Customer.class);
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
     private Long id;
@@ -22,9 +28,6 @@ public class Customer {
     }
     @Override
     public String toString() {
-        System.out.println("testhost");
-        System.out.println("test");
-        System.out.println("merge");
         return String.format(
                 "Customer[id=%d, firstName='%s', lastName='%s']",
                 id, firstName, lastName);

@@ -60,7 +60,7 @@ public class test2 {
 //        System.out.println("a:"+a);
 //        x = "2";
 //        System.out.println("a:"+new ObjectId("123"));
-//        System.out.println("aa="+ org.sang.demo.test.TestFinal.aa);
+//        System.out.println("aa="+ org.sang.demo.LoadOrder.TestFinal.aa);
 //        int b = 0;
 //        double d = 0.00d;
 //        System.out.println(b == d);

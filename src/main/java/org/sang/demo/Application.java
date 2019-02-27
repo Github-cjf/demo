@@ -3,6 +3,7 @@ package org.sang.demo;
 import org.bson.types.ObjectId;
 import org.sang.demo.test.*;
 import org.sang.demo.util.SpringUtil;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -17,10 +18,12 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.*;
+import java.util.logging.Logger;
 
 @SpringBootApplication
 @RestController
 public class Application {
+
 //    private final Person person;
 //
 //    @Autowired
@@ -55,7 +58,7 @@ public class Application {
 
     }
 
-    @RequestMapping(value = "/index", method = RequestMethod.GET)
+//    @RequestMapping(value = "/index", method = RequestMethod.GET)
     void index2() {
 //        map.put("hello", "121");
 //        map.put("bye", "saunala");
@@ -72,7 +75,7 @@ public class Application {
         list.forEach((Object obj) -> {
             if(obj instanceof Map){
                 ObjectId id = (ObjectId) ((Map) obj).get("_id");
-                Map<String, Object> reportContent = (Map)((Map) obj).get("reportContent");
+                Map reportContent = (Map)((Map) obj).get("reportContent");
                 String title = reportContent.get("title").toString();
                 List<Map<String, Object>> sonList = (List<Map<String, Object>>) reportContent.get("sonList");
                 Set<String> set = new HashSet<>();

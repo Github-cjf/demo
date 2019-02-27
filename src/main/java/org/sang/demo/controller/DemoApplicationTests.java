@@ -28,7 +28,7 @@ public class DemoApplicationTests {
     @Autowired
     TestService testService;
 
-    @Value("${test.str}")
+    @Value("${LoadOrder.str}")
     String value;
 
     @Autowired
