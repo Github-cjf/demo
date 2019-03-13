@@ -1,9 +1,8 @@
 package org.sang.demo;
 
 import org.bson.types.ObjectId;
-import org.sang.demo.test.*;
-import org.sang.demo.util.SpringUtil;
-import org.slf4j.LoggerFactory;
+import org.sang.demo.test.BaseValueInject;
+import org.sang.demo.test.Person;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -11,17 +10,16 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
-import org.springframework.scheduling.annotation.EnableScheduling;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.*;
-import java.util.logging.Logger;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 @SpringBootApplication
 @RestController
+//@ComponentScan
 public class Application {
 
 //    private final Person person;
@@ -47,6 +45,7 @@ public class Application {
     @Bean
     public Person initPerson(){
         Person p = new Person();
+
         p.setName("王五");
         p.setSex(SexEnum.male);
         return p;

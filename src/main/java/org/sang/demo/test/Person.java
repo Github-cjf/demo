@@ -7,8 +7,6 @@ import lombok.NoArgsConstructor;
 import lombok.experimental.Accessors;
 import org.sang.demo.SexEnum;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Repository;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -78,19 +76,30 @@ public class Person {
                 '}';
     }
 
-//    @Override
-//    public boolean equals(Object o) {
-//        if (this == o) return true;
-//        if (o == null || getClass() != o.getClass()) return false;
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
 //        if (!super.equals(o)) return false;
-//        Person person = (Person) o;
-//        return Objects.equals(id, person.id) &&
-//                Objects.equals(name, person.name);
-//    }
-//
-//    @Override
+        Person person = (Person) o;
+        return Objects.equals(id, person.id);
+    }
+
+    @Override
     public int hashCode() {
 
         return Objects.hash(super.hashCode(), id, name);
+    }
+
+    public static void main(String[] args) {
+        Person p1 = new Person();
+        p1.setAge(5);
+        p1.setId("1");
+        Person p2 = new Person();
+        p2.setAge(10);
+        p2.setId("1");
+        System.out.println(p1.equals(p2));
+
+
     }
 }

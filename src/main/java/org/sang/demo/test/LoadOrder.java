@@ -5,8 +5,13 @@ package org.sang.demo.test;
  */
 public class LoadOrder {
     public static void main(String[] args) {
-        new LoadOrder();                         //4.第四步，new一个类，但在new之前要处理匿名代码块
-        System.out.println(num);
+        LoadOrder l = new LoadOrder();                         //4.第四步，new一个类，但在new之前要处理匿名代码块
+        System.out.println(l.num);
+    }
+
+    LoadOrder() { // 类的构造函数，第四个加载
+        System.out.println("d");           //8.第八步，最后加载构造函数，完成对象的建立
+        num = 2;
     }
 
     static int num = 4;                    //2.第二步，静态变量和静态代码块的加载顺序由编写先后决定
@@ -22,9 +27,7 @@ public class LoadOrder {
         System.out.println("c");           //7.第七步，按照顺序打印c
     }
 
-    LoadOrder() { // 类的构造函数，第四个加载
-        System.out.println("d");           //8.第八步，最后加载构造函数，完成对象的建立
-    }
+
 
     static {                              // 3.第三步，静态块，然后执行静态代码块，因为有输出，故打印a
         System.out.println("a");

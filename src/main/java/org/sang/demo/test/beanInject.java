@@ -19,3 +19,4 @@ public class beanInject {
         this.another = another;
     }
 }
+

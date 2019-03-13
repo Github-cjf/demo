@@ -6,6 +6,32 @@ spring:
       host: 192.168.198.71
       database: drgs-report
       port: 27017
+  rabbitmq:
+    addresses: 192.168.199.133:5672
+    username: admin
+    password: admin
+    # 是否开启消息发送到交换器（Exchange）后触发回调
+    publisher-confirms: false
+    # 是否开启消息发送到队列（Queue）后触发回调
+    publisher-returns: false
+    # 消息发送失败重试相关配置
+    template:
+      retry:
+        enabled: true
+        initial-interval: 3000ms
+        max-attempts: 3
+        max-interval: 10000ms
+        multiplier: 1
+      # 消息接收确认，可选模式：NONE（不确认）、AUTO（自动确认）、MANUAL（手动确认）
+    listener:
+      simple:
+        acknowledge-mode: AUTO
+    # 最小线程数量
+        concurrency: 10
+    # 最大线程数量
+        max-concurrency: 10
+    # 每个消费者可能未完成的最大未确认消息数量
+        prefetch: 1
 #  data:
 #    mongodb:
 #      uri: mongodb://192.168.198.71:27017

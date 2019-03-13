@@ -5,4 +5,5 @@ package org.sang.demo.inter;
  */
 public interface CommonInter {
     void say(String name);
+
 }

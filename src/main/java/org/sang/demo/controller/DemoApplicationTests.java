@@ -2,12 +2,10 @@ package org.sang.demo.controller;
 
 import org.sang.demo.service.TestService;
 import org.sang.demo.test.Person;
-import org.sang.demo.util.SpringUtil;
+import org.sang.demo.util.MessageSender;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.mongodb.core.MongoTemplate;
-import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,18 +19,21 @@ import java.util.Map;
 
 @Controller
 public class DemoApplicationTests {
-    @Autowired
-    public Person person;
+//    @Autowired
+//    public Person person;
 
     @Qualifier("test1")
     @Autowired
     TestService testService;
 
-    @Value("${LoadOrder.str}")
+//    @Value("${LoadOrder.str}")
     String value;
 
     @Autowired
     MongoTemplate mongoTemplate;
+
+    @Autowired
+    MessageSender messageSender;
 
     @RequestMapping(value = "/person1", method = RequestMethod.POST)
     public String person(@RequestBody Person person) {
@@ -50,22 +51,24 @@ public class DemoApplicationTests {
     @RequestMapping(value = "/testUrl", method = RequestMethod.GET)
     @ResponseBody
     public String testUrl() {
-        List<Object> list = mongoTemplate.find(new Query(), Object.class, "com.ewell.bean.UserBean");
-        System.out.println(list.size());
-
-        SpringUtil sp = SpringUtil.getBean(SpringUtil.class);
-        System.out.println("sp:"+sp.num);
-
-        SpringUtil sp2 = (SpringUtil) SpringUtil.getBean("springUtil");
-        System.out.println("sp2:"+sp2.num);
-
-        Person p = SpringUtil.getBean(Person.class);
-        System.out.println(p);
-
-        Person p2 = (Person) SpringUtil.getBean("initPerson");
-        System.out.println(p2);
-
-        System.out.println("result===="+value);
+        messageSender.sendTestMessage("hello world55", 5);
+//        Queue q = (Queue) SpringUtil.getBean(Queue.class);
+//        List<Object> list = mongoTemplate.find(new Query(), Object.class, "com.ewell.bean.UserBean");
+//        System.out.println(list.size());
+//
+//        SpringUtil sp = SpringUtil.getBean(SpringUtil.class);
+//        System.out.println("sp:"+sp.num);
+//
+//        SpringUtil sp2 = (SpringUtil) SpringUtil.getBean("springUtil");
+//        System.out.println("sp2:"+sp2.num);
+//
+//        Person p = SpringUtil.getBean(Person.class);
+//        System.out.println(p);
+//
+//        Person p2 = (Person) SpringUtil.getBean("initPerson");
+//        System.out.println(p2);
+//
+//        System.out.println("result===="+value);
         Map<String, String> map = new HashMap<>();
         map.put("1","a");
         map.put("2", "b");
