@@ -1,8 +1,5 @@
 package org.sang.demo.test;
 
-import lombok.Data;
-import lombok.experimental.Accessors;
-
 /**
  * Created by CJF on 2018-12-6.
  */

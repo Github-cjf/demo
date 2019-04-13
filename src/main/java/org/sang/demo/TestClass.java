@@ -2,23 +2,16 @@ package org.sang.demo;
 
 import org.bson.types.ObjectId;
 import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.sang.demo.test.MyException;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import java.io.*;
 import java.util.*;
 
 /**
  * Created by CJF on 2018-7-25.
  */
-@SpringBootTest
-@RunWith(SpringJUnit4ClassRunner.class)
 public class TestClass {
 
     @Autowired
@@ -31,6 +24,7 @@ public class TestClass {
 
     @Test
     public void simple(){
+        System.out.println(0b101>>2 == 1);
         Criteria criteria =new Criteria();
 //        criteria.and("_id").is(new ObjectId("59feb0a75a3d13586d16f636"));
         Query q = new Query(criteria);

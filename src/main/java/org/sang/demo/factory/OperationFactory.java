@@ -21,7 +21,7 @@ public class OperationFactory {
         }
     }
 
-    public static void main(String[] args) throws InterruptedException {
+    public static void main(String[] args) {
         Customer c = new Customer();
         System.out.println(c.toString());
         //简单工厂模式

@@ -1,8 +1,5 @@
 package org.sang.demo.service;
 
-import org.sang.demo.dao.UserJPA;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Example;
 import org.springframework.stereotype.Service;
 
 /**
@@ -11,9 +8,12 @@ import org.springframework.stereotype.Service;
 @Service("test1")
 public class TestServiceImpl1 implements TestService{
 
+//    @Autowired
+//    UserJPA userJPA;
+
     @Override
     public String getData() {
-
+//        userJPA.count(Example.of(new Person()));
         return "test1";
     }
 }

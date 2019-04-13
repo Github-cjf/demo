@@ -2,12 +2,11 @@ package org.sang.demo.util;
 
 import lombok.AllArgsConstructor;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
-import org.springframework.stereotype.Component;
 
 /**
  * Created by CJF on 2019/3/1.
  */
-@Component
+//@Component
 @AllArgsConstructor
 public class MessageSender {
     private static final String EXCHANGE = "test-exchange";

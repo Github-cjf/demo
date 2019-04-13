@@ -2,13 +2,12 @@ package org.sang.demo.util;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
-import org.springframework.stereotype.Component;
 
 /**
  * Created by CJF on 2019/3/1.
  */
 @Slf4j
-@Component
+//@Component
 public class MessageListener {
     @RabbitListener(queues = "test-queue")
     public void listen(String message) {

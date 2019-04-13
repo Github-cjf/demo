@@ -1,8 +1,6 @@
 package org.sang.demo.bean;
 
 import lombok.Data;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -15,7 +13,6 @@ import javax.persistence.Id;
 @Entity
 @Data
 public class Customer {
-    private final Logger logger = LoggerFactory.getLogger(Customer.class);
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
     private Long id;

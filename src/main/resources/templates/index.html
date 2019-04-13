@@ -8,5 +8,35 @@
 <h1>1Hello Spring Boot!!!</h1>
 <p th:text="${hello}"></p>
 <p th:text="${bye}"></p>
+<form id="uploadForm" method="POST" enctype="multipart/form-data" action="localhost:8607/diseaseType/updateDiseaseType">
+    <p>id：<input type="text" name="id" value="5b890fa835b41b396c18f751"/></p>
+    <p>diseaseType：<input type="text" name="diseaseType" value="CS"/></p>
+    <p>diseaseDescription：<input type="text" name="diseaseDescription" value="剖宫产"/></p>
+    <p>imgName：<input type="text" name="imgName" value="CS.png"/></p>
+    <p>文件3：<input type="file" name="file" /></p>
+    <p><input id="aa" type="button" value="上传" /></p>
+</form>
+
+
 </body>
+<script>
+    $("#aa").click(function () {
+        var formData = new FormData($( "#uploadForm" ))[0];
+        $.ajax({
+            url: 'localhost:8607/diseaseType/updateDiseaseType' ,
+            type: 'POST',
+            data: formData,
+            async: false,
+            cache: false,
+            contentType: false,
+            processData: false,
+            success: function (returndata) {
+                alert(returndata);
+            },
+            error: function (returndata) {
+                alert(returndata);
+            }
+        });
+    });
+</script>
 </html>

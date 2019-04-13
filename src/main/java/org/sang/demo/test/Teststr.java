@@ -1,10 +1,8 @@
 package org.sang.demo.test;
 
-import io.swagger.models.auth.In;
 import org.springframework.stereotype.Component;
 
 import java.lang.reflect.Field;
-import java.util.Arrays;
 
 @Component
 public class Teststr {
@@ -34,15 +32,15 @@ public class Teststr {
 
     }
 
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] args) {
         Teststr ttt = new Teststr();
         Teststr.Test2 t = ttt.new Test2();
         Person p1 = new Person();
-        p1.setId("1");
+        p1.setId(1);
         p1.setAge(10);
         p1.setName("12");
         Person p2 = new Person();
-        p2.setId("1");
+        p2.setId(1);
         Person p3 = p1;
 //        System.out.println("12"+p1.equals(p2));
 //        System.out.println(p1.hashCode()+"--"+p2.hashCode());

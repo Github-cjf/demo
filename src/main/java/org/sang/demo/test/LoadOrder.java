@@ -6,7 +6,7 @@ package org.sang.demo.test;
 public class LoadOrder {
     public static void main(String[] args) {
         LoadOrder l = new LoadOrder();                         //4.第四步，new一个类，但在new之前要处理匿名代码块
-        System.out.println(l.num);
+        System.out.println(num);
     }
 
     LoadOrder() { // 类的构造函数，第四个加载

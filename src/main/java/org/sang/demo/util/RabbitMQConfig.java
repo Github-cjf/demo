@@ -5,7 +5,6 @@ import org.springframework.amqp.core.BindingBuilder;
 import org.springframework.amqp.core.Queue;
 import org.springframework.amqp.core.TopicExchange;
 import org.springframework.context.annotation.Bean;
-import org.springframework.stereotype.Component;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -13,7 +12,7 @@ import java.util.Map;
 /**
  * Created by CJF on 2019/3/1.
  */
-@Component
+//@Component
 public class RabbitMQConfig {
     private static String EXCHANGE = "test-exchange";
     private static String QUEUE = "test-queue";

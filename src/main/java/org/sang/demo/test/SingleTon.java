@@ -23,15 +23,15 @@ class SingleTon {
 
     public static void main(String[] args) {
 //        SingleTon singleTon = SingleTon.getInstance();
-        System.out.println("count1=" + singleTon.count1);
-        System.out.println("count2=" + singleTon.count2);
+        System.out.println("count1=" + count1);
+        System.out.println("count2=" + count2);
     }
 }
 
 class Test {
     public static void main(String[] args) {
         SingleTon singleTon = SingleTon.getInstance();
-        System.out.println("count1=" + singleTon.count1);
-        System.out.println("count2=" + singleTon.count2);
+        System.out.println("count1=" + SingleTon.count1);
+        System.out.println("count2=" + SingleTon.count2);
     }
 }

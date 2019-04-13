@@ -13,8 +13,18 @@ import java.io.IOException;
 @WebFilter
 public class My2Filter implements Filter{
     @Override
+    public void init(FilterConfig filterConfig) {
+
+    }
+
+    @Override
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
-        System.out.println("filter拦截");
+//        System.out.println("filter拦截");
         filterChain.doFilter(servletRequest, servletResponse);
+    }
+
+    @Override
+    public void destroy() {
+
     }
 }

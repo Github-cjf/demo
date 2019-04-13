@@ -2,7 +2,8 @@ package org.sang.demo.controller;
 
 import org.sang.demo.service.TestService;
 import org.sang.demo.test.Person;
-import org.sang.demo.util.MessageSender;
+import org.sang.demo.test.Results;
+import org.sang.demo.util.SpringUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.data.mongodb.core.MongoTemplate;
@@ -32,8 +33,8 @@ public class DemoApplicationTests {
     @Autowired
     MongoTemplate mongoTemplate;
 
-    @Autowired
-    MessageSender messageSender;
+//    @Autowired
+//    MessageSender messageSender;
 
     @RequestMapping(value = "/person1", method = RequestMethod.POST)
     public String person(@RequestBody Person person) {
@@ -51,7 +52,9 @@ public class DemoApplicationTests {
     @RequestMapping(value = "/testUrl", method = RequestMethod.GET)
     @ResponseBody
     public String testUrl() {
-        messageSender.sendTestMessage("hello world55", 5);
+        Results re = (Results) SpringUtil.getBean("results");
+        System.out.println(re.ranks);
+//        messageSender.sendTestMessage("hello world55", 5);
 //        Queue q = (Queue) SpringUtil.getBean(Queue.class);
 //        List<Object> list = mongoTemplate.find(new Query(), Object.class, "com.ewell.bean.UserBean");
 //        System.out.println(list.size());

@@ -13,7 +13,7 @@ import java.util.stream.IntStream;
  * Created by CJF on 2018-5-31.
  */
 public class test2 {
-    public static void main(String[] args) throws InterruptedException {
+    public static void main(String[] args) {
         int a = 123;
         int b = 432;
         a |= b;
