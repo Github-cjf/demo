@@ -18,5 +18,6 @@ public class NativeJava {
 
     public static void main(String[] args) {
 //        new NativeJava().sayHello();
+        System.out.println("123");
     }
 }
