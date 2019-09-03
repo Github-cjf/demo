@@ -5,20 +5,6 @@ package org.sang.demo.test;
  */
 public class TestD {
     public static void main(String[] args) {
-//        new Thread(new Thread1()).start();
-//        try {
-//            Thread.sleep(5000);
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
-//        new Thread(new Thread2()).start();
-        long start_time = System.currentTimeMillis();
-        Long sum = 0L;
-        for (long i = 0; i < 10; i++) {
-            sum += i;
-        }
-        System.out.println(System.currentTimeMillis()-start_time);
-
     }
 
     private static class Thread1 implements Runnable{

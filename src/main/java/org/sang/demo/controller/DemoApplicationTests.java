@@ -1,8 +1,8 @@
 package org.sang.demo.controller;
 
+import com.alibaba.druid.pool.DruidDataSource;
 import org.sang.demo.service.TestService;
 import org.sang.demo.test.Person;
-import org.sang.demo.test.Results;
 import org.sang.demo.util.SpringUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -13,10 +13,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
+import java.util.stream.Collectors;
 
 @Controller
 public class DemoApplicationTests {
@@ -36,6 +34,13 @@ public class DemoApplicationTests {
 //    @Autowired
 //    MessageSender messageSender;
 
+
+    public static void main(String[] args) {
+        String[] a1 = new String[]{"a", "b", "c"};
+        Integer[] a2 = new Integer[]{1, 2, 3};
+        System.out.println(Arrays.stream(a1).flatMap(str -> Arrays.stream(a2).map(i -> str+i)).collect(Collectors.toList()));
+    }
+
     @RequestMapping(value = "/person1", method = RequestMethod.POST)
     public String person(@RequestBody Person person) {
         System.out.println("result===="+testService.getData());
@@ -44,16 +49,15 @@ public class DemoApplicationTests {
         list.add("b");
         list.add("dd");
         list.add("c");
+
         return person.toString();
     }
-//    @Autowired
-//    SpringUtil s;
 
     @RequestMapping(value = "/testUrl", method = RequestMethod.GET)
     @ResponseBody
     public String testUrl() {
-        Results re = (Results) SpringUtil.getBean("results");
-        System.out.println(re.ranks);
+        DruidDataSource re = (DruidDataSource) SpringUtil.getBean("dataSource");
+        System.out.println(re.getProxyFilters());
 //        messageSender.sendTestMessage("hello world55", 5);
 //        Queue q = (Queue) SpringUtil.getBean(Queue.class);
 //        List<Object> list = mongoTemplate.find(new Query(), Object.class, "com.ewell.bean.UserBean");

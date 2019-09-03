@@ -3,7 +3,6 @@ package org.sang.demo.test;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
 import lombok.experimental.Accessors;
 import org.sang.demo.SexEnum;
 import org.springframework.stereotype.Component;
@@ -20,7 +19,6 @@ import java.util.Objects;
 @Component
 @Data
 @Accessors(chain = true)
-@NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode(of = {"id"})
 @Entity
@@ -41,10 +39,10 @@ public class Person {
         return name+"00";
     }
 
-    public Person2 setName(String name) {
-        this.name = name + "xx";
-        return null;
-    }
+//    public Person2 setName(String name) {
+//        this.name = name + "xx";
+//        return null;
+//    }
 
     public List<String> getData() {
         return Arrays.asList("a", "b");
@@ -69,6 +67,10 @@ public class Person {
         this.sex = sex;
     }
 
+    public Person(String name) {
+        this.name = name;
+    }
+
 
     public Person(long id, String name, int age, Date birth_date, SexEnum sex) {
         this.id = id;
@@ -76,6 +78,15 @@ public class Person {
         this.age = age;
         this.birth_date = birth_date;
         this.sex = sex;
+    }
+
+
+    public Person(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
+
+    public Person() {
     }
 
     @Override

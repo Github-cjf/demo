@@ -47,6 +47,31 @@ public enum ColorEnum {
     }
 
     public static void main(String[] args) {
-        System.out.println(ColorEnum.getProp());
+        Runnable r = () -> {
+          try {
+              while (!Thread.currentThread().isInterrupted()) {
+                  i = 0;
+                  test();
+              }
+          } catch (Exception e) {
+              System.out.println("end");
+          }
+        };
+//        System.out.println(ColorEnum.getProp());
+        new Thread(r).start();
+    }
+    private static int i = 0;
+    private static void test() throws Exception {
+
+        try {
+            System.out.println("loop");
+            throw new Exception("throw");
+        } catch (Exception e) {
+            i++;
+            if(i > 2) {
+                throw new Exception("break");
+            }
+            test();
+        }
     }
 }

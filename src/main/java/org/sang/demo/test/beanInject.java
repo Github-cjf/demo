@@ -18,5 +18,9 @@ public class beanInject {
     public void setAnother(String another) {
         this.another = another;
     }
+
+    public static void main(String[] args) {
+        System.out.println(0x7F);
+    }
 }
 

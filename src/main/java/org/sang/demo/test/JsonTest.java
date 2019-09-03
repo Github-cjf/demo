@@ -17,6 +17,7 @@ public class JsonTest {
         Person p = new Person();
         p.setId(5);
         p.setName("22");
+        Person person = p.setAddress(null);
 
         String personStr = "{\"id\":5,\"name\":\"2200\",\"sex\":null,\"age\":0,\"birth_date\":null,\"address\":null}";
 
@@ -41,9 +42,10 @@ public class JsonTest {
 
         JsonTest.action1();
 
-        int a = 8;
-        int b= 2;
-        System.out.println(a |= b);
+        net.sf.json.JSONObject netJson = net.sf.json.JSONObject.fromObject(p);
+        System.out.println(netJson.get("address") ==null);
+        System.out.println(netJson.getString("address") == null);
+
     }
 
     private static Lock lock = new ReentrantLock();

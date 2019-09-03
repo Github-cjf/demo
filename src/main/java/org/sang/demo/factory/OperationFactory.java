@@ -7,6 +7,12 @@ import org.sang.demo.inter.Operation;
 import org.sang.demo.inter.OperationInter;
 import org.sang.demo.test.MyException;
 
+import java.util.Arrays;
+import java.util.List;
+import java.util.Map;
+import java.util.function.Function;
+import java.util.stream.Collectors;
+
 /**
  * Created by CJF on 2019/2/20.
  */
@@ -36,6 +42,9 @@ public class OperationFactory {
         op2.setNum2(2);
         op2.setNum1(5);
         System.out.println(op2.getResult());
+        List<String> list = Arrays.asList("a", "b", "c", "a");
+        Map<String, String> map = list.stream().collect(Collectors.toMap(s -> s+"1", Function.identity(), (k1, k2) -> k2));
+        System.out.println(map);
 //        System.out.println(1);
 //        Thread t = new Thread(() -> {
 //            try {

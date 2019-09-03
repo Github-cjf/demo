@@ -1,12 +1,7 @@
 package org.sang.demo.test;
 
-import org.bson.types.ObjectId;
-import org.sang.demo.JsonUtil;
-import org.springframework.util.LinkedMultiValueMap;
-import org.springframework.util.MultiValueMap;
-
-import java.util.*;
-import java.util.stream.Collectors;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.stream.IntStream;
 
 /**
@@ -14,10 +9,10 @@ import java.util.stream.IntStream;
  */
 public class test2 {
     public static void main(String[] args) {
-        int a = 123;
-        int b = 432;
-        a |= b;
-        System.out.println(a);
+//        int a = 123;
+//        int b = 432;
+//        a |= b;
+//        System.out.println(a);
 //        for (int i = 0; i < 10; i++) {
 //            new Thread(() -> {
 //                System.out.println(Thread.currentThread().getName()+"==="+Message.getInstance().hashCode());
@@ -28,10 +23,12 @@ public class test2 {
 //        String s3 = "bc";
 //        String s4 = s2 + s3;
 //        System.out.println(s1 == s4);
-//        List list = new ArrayList(10000);
-//        IntStream.range(0, 1000).parallel().forEach(list::add);
-////        Vector v = new Vector();
-////        list.parallelStream().forEach(System.out::println);
+        List list = new ArrayList(1000);
+//        list = new Vector();
+        IntStream.range(0, 1000).forEach(list::add);
+        System.out.println(list.size());
+//        Vector v = new Vector();
+//        list.parallelStream().forEach(System.out::println);
 //        System.out.println(list.size());
 //        int b[] = IntStream.range(0, 1_000_000).parallel().filter(p -> p % 2 == 0).toArray();
 //        System.out.println(b.length);
