@@ -19,6 +19,22 @@ public class jsonchange {
     private static final String s = "aa";
 
     public static void main(String[] args) throws InterruptedException {
+//        Runnable r = () -> {
+//            while (!Thread.currentThread().isInterrupted()) {
+//                try {
+//                    System.out.println("121");
+//                    Thread.sleep(2000);
+//                } catch (InterruptedException e) {
+//                    e.printStackTrace();
+////                    Thread.currentThread().interrupt();
+//                }
+//            }
+//        };
+//        Thread t = new Thread(r);
+//        t.start();
+//        Thread.sleep(1000);
+//        t.interrupt();
+//        System.out.println("end");
 
         Stream<Person> userStream = Stream.of(new Person("张三", 18), new Person("张四", 19),
                 new Person("张五", 19), new Person("老张", 50));
